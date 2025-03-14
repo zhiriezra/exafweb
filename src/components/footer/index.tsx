@@ -12,19 +12,24 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Left Section */}
           <CustomAOS variant="slideInLeft" className="space-y-6">
-            <Image
-              src="/logo.avif"
-              alt="Extension Africa"
-              width={50}
-              height={50}
-              className="mb-6"
-            />
-            <p className="text-gray-300 max-w-md">
+            <div className="flex items-center gap-5 mb-6">
+              <Image
+                src="/logo.avif"
+                alt="Extension Africa"
+                width={50}
+                height={50}
+                className="rounded-full"
+              />
+              <h6 className="text-white text-2xl font-bold hover:text-yellow-500 cursor-pointer">
+                Extension Africa
+              </h6>
+            </div>
+            <p className="text-gray-100 max-w-md">
               Expansion Africa (EXAF) is a study-driven agricultural tech
               platform delivering proprietary extension services to participants
               in the value chain.
             </p>
-            <p className="text-gray-300 max-w-md">
+            <p className="text-gray-100 max-w-md">
               Through our robust network of grassroot extension agents, we are
               catalyzing high-impact market-led partnerships that build
               competitive value chains, expand smallholder access to productive
@@ -79,10 +84,7 @@ export default function Footer() {
               <Link href="/" className="block text-gray-300 hover:text-white">
                 Product
               </Link>
-              <Link
-                href="/academy"
-                className="block text-gray-300 hover:text-white"
-              >
+              <Link href="/" className="block text-gray-300 hover:text-white">
                 Academy
               </Link>
               <Link href="/" className="block text-gray-300 hover:text-white">

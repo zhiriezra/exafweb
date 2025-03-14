@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -8,7 +7,6 @@ const AutoScrollingPartners = () => {
   const [contentWidth, setContentWidth] = useState(0);
   const scrollX = useRef(0);
 
-  // Set the total scrollable width on mount and update on window resize.
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -20,25 +18,22 @@ const AutoScrollingPartners = () => {
     return () => window.removeEventListener("resize", updateContentWidth);
   }, []);
 
-  // Set up the auto-scrolling effect.
   useEffect(() => {
     if (!contentWidth) return;
     const container = scrollContainerRef.current;
     if (!container) return;
     const interval = setInterval(() => {
-      scrollX.current += 1; // Move 1 pixel per tick.
-      // Reset scroll when half the duplicated content has been scrolled.
+      scrollX.current += 1;
       if (scrollX.current >= contentWidth / 2) {
         scrollX.current = 0;
         container.scrollLeft = 0;
       } else {
         container.scrollLeft = scrollX.current;
       }
-    }, 16); // Roughly 60 frames per second.
+    }, 16);
     return () => clearInterval(interval);
   }, [contentWidth]);
 
-  // List your partner logos (assumed to be in your public folder).
   const logos = [
     "/logo/partners/one.png",
     "/logo/partners/two.png",
@@ -52,7 +47,6 @@ const AutoScrollingPartners = () => {
     "/logo/partners/ten.png",
   ];
 
-  // Duplicate the array for a seamless scroll.
   const duplicatedLogos = [...logos, ...logos];
 
   return (
@@ -69,15 +63,15 @@ const AutoScrollingPartners = () => {
         justifyContent: "center",
       }}
     >
-      <h5 className="text-3xl font-bold mb-4">
+      <h5 className="text-3xl font-bold mb-4 text-center">
         We are trusted by reputable clients & partners
       </h5>
       <div
+        className="max-w-[1200px] mx-auto"
         style={{
-          height: "40px",
+          height: "50px",
           overflow: "hidden",
           marginTop: "5px",
-          width: "100%",
         }}
       >
         <div
@@ -85,16 +79,18 @@ const AutoScrollingPartners = () => {
           style={{
             display: "flex",
             overflowX: "scroll",
-            scrollbarWidth: "none", // For Firefox
-            msOverflowStyle: "none", // For IE and Edge
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            justifyContent: "center",
+            // gap: "10px", // Adjust spacing
           }}
         >
           {duplicatedLogos.map((logo, index) => (
             <div
               key={index}
               style={{
-                width: "80px",
-                height: "40px",
+                width: "200px", // Reduce width
+                height: "50px",
                 position: "relative",
                 flexShrink: 0,
               }}
@@ -109,7 +105,6 @@ const AutoScrollingPartners = () => {
           ))}
         </div>
       </div>
-      {/* Hide scrollbar in Webkit browsers */}
       <style jsx>{`
         div::-webkit-scrollbar {
           display: none;
