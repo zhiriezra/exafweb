@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { routes } from "@/routes";
@@ -33,154 +34,94 @@ const menuVariants = {
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const LINKS = [
-    {
-      id: 1,
-      href: routes.home,
-      label: "HOME",
-    },
-    {
-      id: 2,
-      href: routes.aboutUs,
-      label: "ABOUT US",
-    },
-    {
-      id: 3,
-      href: routes.contactUs,
-      label: "CONTACT US",
-    },
-    {
-      id: 4,
-      href: routes.findAgents,
-      label: "FIND AGENT",
-    },
+    { id: 1, href: routes.home, label: "HOME" },
+    { id: 2, href: routes.aboutUs, label: "ABOUT US" },
+    { id: 3, href: routes.contactUs, label: "CONTACT US" },
+    { id: 4, href: routes.findAgents, label: "FIND AGENT" },
   ];
+
   return (
-    <div className="bg-dark py-6 relative">
-      <div className="max-w-[1200px] mx-auto px-4 flex items-center justify-between">
-        <Link href="/">
-          <motion.div
-            className="flex items-center justify-center gap-2"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Image alt="" height={50} width={50} src={"/logo.avif"} />
-            {/* <div className="">
-              <h1 className="text-2xl font-bold tracking-wider font-gildaDisplay logo-text">
-                Areis Real Estate
-              </h1>
-            </div> */}
-          </motion.div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          <AllRoutes />
-        </div>
-
-        {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-4 md:hidden">
-          <motion.button
-            className="md:hidden text-black p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </motion.button>
-        </div>
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              className="fixed inset-0 bg-white z-50 flex flex-col "
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-            >
-              <div className="flex justify-between items-center p-4 border-b bg-white border-gray-700">
-                <Link href="/" onClick={() => setMenuOpen(false)}>
-                  <motion.div
-                    className="flex items-center justify-center gap-2"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Image alt="" height={50} width={50} src={"/logo.avif"} />
-
-                    {/* <div className="">
-                      <h1 className="text-xl font-bold tracking-wider font-gildaDisplay logo-text">
-                        Areis Real Estate
-                      </h1>
-                    </div> */}
-                  </motion.div>
-                </Link>
-                <div className="flex items-center gap-4">
-                  <motion.button
-                    className="text-black p-2"
-                    onClick={() => setMenuOpen(false)}
-                    whileHover={{ rotate: 90 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <FaTimes size={24} />
-                  </motion.button>
-                </div>
-              </div>
-
-              <motion.div
-                initial="closed"
-                animate="open"
-                transition={{ staggerChildren: 0.1 }}
-                className={`flex items-center text-black flex-col gap-4 py-5 font-barlowCondensed`}
-              >
-                {LINKS.map(({ href, id, label }) => (
-                  <Link
-                    key={id}
-                    href={href}
-                    className="hover:text-gold hover:underline text-sm hover:bg-medium px-4 py-2"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+    <header className="bg-white py-6 w-dvw">
+      <div className="w-dvw flex items-center justify-between px-4">
+        <Logo />
+        <nav className="hidden md:flex space-x-6">
+          {LINKS.map(({ id, href, label }) => (
+            <NavLink key={id} href={href} label={label} />
+          ))}
+        </nav>
+        <MobileMenuButton
+          isOpen={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+        />
       </div>
-    </div>
+      <AnimatePresence>
+        {menuOpen && (
+          <MobileMenu
+            links={LINKS}
+            onClose={() => setMenuOpen(false)}
+            variants={menuVariants}
+          />
+        )}
+      </AnimatePresence>
+    </header>
   );
 }
 
-export function AllRoutes({ className }: { className?: string }) {
-  const LINKS = [
-    {
-      id: 1,
-      href: routes.home,
-      label: "HOME",
-    },
-    {
-      id: 2,
-      href: routes.aboutUs,
-      label: "ABOUT US",
-    },
-    {
-      id: 6,
-      href: routes.contactUs,
-      label: "CONTACT US",
-    },
-  ];
+function Logo() {
   return (
-    <div
-      className={`flex items-center space-x-6 text-white max-sm:flex-col ${className}`}
+    <Link href="/">
+      <Image alt="Logo" height={50} width={50} src="/logo.avif" />
+    </Link>
+  );
+}
+
+function NavLink({ href, label }: any) {
+  return (
+    <Link
+      href={href}
+      className="text-sm font-medium text-gray-700 hover:text-gold"
     >
-      {LINKS.map(({ href, id, label }) => (
-        <Link
-          key={id}
-          href={href}
-          className="hover:text-gold hover:underline font-barlow text-sm"
+      {label}
+    </Link>
+  );
+}
+
+function MobileMenuButton({ isOpen, onClick }: any) {
+  return (
+    <button
+      className="md:hidden text-black p-2"
+      onClick={onClick}
+      aria-label="Toggle menu"
+    >
+      {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+    </button>
+  );
+}
+
+function MobileMenu({ links, onClose, variants }: any) {
+  return (
+    <motion.div
+      className="fixed inset-0 bg-white z-50 flex flex-col"
+      initial="closed"
+      animate="open"
+      exit="closed"
+      variants={variants}
+    >
+      <div className="flex justify-between items-center p-4 border-b border-gray-200">
+        <Logo />
+        <button
+          className="text-black p-2"
+          onClick={onClose}
+          aria-label="Close menu"
         >
-          {label}
-        </Link>
-      ))}
-    </div>
+          <FaTimes size={24} />
+        </button>
+      </div>
+      <nav className="flex flex-col items-center space-y-4 py-5">
+        {links.map(({ id, href, label }: any) => (
+          <NavLink key={id} href={href} label={label} />
+        ))}
+      </nav>
+    </motion.div>
   );
 }
