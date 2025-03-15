@@ -9,13 +9,13 @@ export default function HeroSection() {
 
       {/* Main Content */}
       <div className="flex-1">
-        <AboutUsHero />
+        <PublicationHero />
       </div>
     </div>
   );
 }
 
-const AboutUsHero = () => {
+const PublicationHero = () => {
   //   const scroll = useScroll();
 
   return (
@@ -40,15 +40,15 @@ const AboutUsHero = () => {
         <div className="max-w-[500px] xl:ml-32 mt-25 sm:mr-auto">
           <CustomAOS variant="fadeInUp" duration={0.6} delay={0.1}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-              About Us
+              Publications
             </h1>
           </CustomAOS>
 
-          <CustomAOS variant="fadeInUp" duration={0.6} delay={0.2}>
+          {/* <CustomAOS variant="fadeInUp" duration={0.6} delay={0.2}>
             <p className="text-white/90 text-lg mb-8 max-w-lg">
-              {`All you need to know about Extension Africa.`}
+              {`The services that we offer`}
             </p>
-          </CustomAOS>
+          </CustomAOS> */}
         </div>
       </div>
     </div>

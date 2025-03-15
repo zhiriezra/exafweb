@@ -4,6 +4,7 @@ import type React from "react";
 
 import classNames from "classnames";
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 interface DropdownItem {
@@ -70,7 +71,7 @@ export function DropdownCustom({
       <button
         type="button"
         className={classNames(
-          "flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2",
+          "flex items-center justify-between w-full py-2 cursor-pointer text-base font-semibold text-white hover:text-yellow-400",
           buttonClassName
         )}
         onClick={() => setIsOpen(!isOpen)}
@@ -84,28 +85,31 @@ export function DropdownCustom({
       {isOpen && (
         <div
           className={classNames(
-            "absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto",
+            "absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 cursor-pointer overflow-auto",
             menuClassName
           )}
           role="listbox"
         >
-          {items.map((item) => (
-            <div
-              key={item.value}
-              className={classNames(
-                "flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-gray-100",
-                selectedItem?.value === item.value &&
-                  "bg-green-50 text-green-700",
-                itemClassName
-              )}
-              onClick={() => handleSelect(item)}
-              role="option"
-              aria-selected={selectedItem?.value === item.value}
-            >
-              {item.icon && <span className="mr-2">{item.icon}</span>}
-              {item.label}
-            </div>
-          ))}
+          {items.map((item) => {
+            return (
+              <Link key={item.value} href={item.value}>
+                <div
+                  className={classNames(
+                    "flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-gray-100",
+                    selectedItem?.value === item.value &&
+                      "bg-green-50 text-green-700",
+                    itemClassName
+                  )}
+                  onClick={() => handleSelect(item)}
+                  role="option"
+                  aria-selected={selectedItem?.value === item.value}
+                >
+                  {item.icon && <span className="mr-2">{item.icon}</span>}
+                  {item.label}
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>

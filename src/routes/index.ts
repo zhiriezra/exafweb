@@ -6,4 +6,8 @@ export const routes = {
   products: "/products",
   findAgents: "/find-agents",
   contactUs: "/",
+  service: "/services",
+  careers: "/careers",
+  publications: "/publications",
+  gallery: "/gallery",
 };
