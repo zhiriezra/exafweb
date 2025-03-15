@@ -34,7 +34,7 @@ export default function HeroSection() {
                   Home
                 </Link>
                 <Link
-                  href="/"
+                  href={routes.aboutUs}
                   className="text-white font-bold hover:text-yellow-400 transition-colors"
                 >
                   About Us
