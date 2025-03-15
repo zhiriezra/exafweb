@@ -41,7 +41,7 @@ export default function SecondSection() {
           >
             <div className="relative w-full transition-transform duration-300 hover:scale-110">
               <Image
-                src="/laptop.png"
+                src="/laptop.avif"
                 alt="Extension Africa Platform"
                 width={1200}
                 height={800}
