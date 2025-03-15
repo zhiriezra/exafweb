@@ -5,6 +5,8 @@ import SecondSection from "./second-section";
 import ThirdSection from "./third-section";
 import FourthSection from "./fourth-section";
 import OurImpact from "./our-impact";
+import Teams from "./teams";
+
 export default function About() {
   return (
     <div>
@@ -13,6 +15,7 @@ export default function About() {
       <ThirdSection />
       <FourthSection />
       <OurImpact />
+      <Teams />
       <ContactSection />
       <Footer />
     </div>

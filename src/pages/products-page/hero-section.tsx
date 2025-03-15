@@ -93,13 +93,13 @@ const FirstCarousel = () => {
         <div className="max-w-[500px] xl:ml-32 mt-25 sm:mr-auto">
           <CustomAOS variant="fadeInUp" duration={0.6} delay={0.1}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-              Find an agent
+              Our Products
             </h1>
           </CustomAOS>
 
           <CustomAOS variant="fadeInUp" duration={0.6} delay={0.2}>
             <p className="text-white/90 text-lg mb-8 max-w-lg">
-              {`Find Extension Agent Around you now.`}
+              {`A range of digital extension products to help you reach your goals.`}
             </p>
           </CustomAOS>
         </div>

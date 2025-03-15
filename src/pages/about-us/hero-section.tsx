@@ -41,7 +41,7 @@ export default function HeroSection() {
                 </Link>
 
                 <Link
-                  href="/"
+                  href={routes.products}
                   className="text-white font-bold hover:text-yellow-400 transition-colors"
                 >
                   Products

@@ -119,25 +119,35 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, items, delay }) => {
     <CustomAOS
       variant="fadeInUp"
       delay={delay}
-      className="bg-white rounded-lg shadow-md p-10 w-fit max-sm:w-full flex flex-col h-full transition-transform duration-300 ease-in-out hover:scale-105"
+      className="bg-white rounded-2xl shadow-lg p-8 w-fit max-sm:w-full flex flex-col h-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl border border-gray-100"
     >
-      <h3 className="text-xl font-semibold mb-4 text-gray-800">{title}</h3>
+      <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b border-gray-100 pb-4">{title}</h3>
 
-      <div className="space-y-3 flex-grow">
+      <div className="space-y-4 flex-grow">
         {items.map((item, index) => (
-          <div key={index} className="flex items-start">
-            <Check className="h-5 w-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" />
-            <span className="text-gray-600">{item.text}</span>
+          <div key={index} className="flex items-start group">
+            <div className="bg-green-100 rounded-full p-1.5 mr-3 flex-shrink-0 group-hover:bg-green-200 transition-colors duration-200">
+              <Check className="h-5 w-5 text-green-600 group-hover:text-green-700" />
+            </div>
+            <span className="text-gray-700 group-hover:text-gray-900 transition-colors duration-200">{item.text}</span>
           </div>
         ))}
       </div>
 
-      <div className="mt-4 pt-2 border-t border-gray-100">
+      <div className="mt-6 pt-4 border-t border-gray-100">
         <a
           href="#"
-          className="text-green-600 hover:text-green-700 text-sm font-medium"
+          className="inline-flex items-center text-green-600 hover:text-green-700 font-semibold group"
         >
-          Learn more...
+          Learn more
+          <svg 
+            className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
     </CustomAOS>

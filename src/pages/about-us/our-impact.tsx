@@ -18,7 +18,7 @@ export default function OurImpact() {
                         Our Impact in Numbers
                     </h1>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Through our innovative agricultural extension services, we're transforming rural farming communities across Africa
+                        Through our innovative agricultural extension services, we&apos;re transforming rural farming communities across Africa
                     </p>
                 </motion.div>
 
@@ -79,7 +79,7 @@ export default function OurImpact() {
                                 Transforming Lives Through Agricultural Innovation
                             </h2>
                             <p className="text-gray-600 mb-6">
-                                Our extension services have revolutionized farming practices, leading to improved yields, better market access, and increased income for farming communities. Through technology and hands-on support, we're building a more sustainable and prosperous agricultural sector.
+                                Our extension services have revolutionized farming practices, leading to improved yields, better market access, and increased income for farming communities. Through technology and hands-on support, we&apos;re building a more sustainable and prosperous agricultural sector.
                             </p>
                             <ul className="space-y-4">
                                 {[
@@ -97,7 +97,7 @@ export default function OurImpact() {
                         </div>
                         <div className="relative h-[400px] lg:h-auto">
                             <Image
-                                src="/african-farmers.jpg"
+                                src="/farmers-tech.avif"
                                 alt="Impact in African Agriculture"
                                 fill
                                 className="object-cover"

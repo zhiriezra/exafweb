@@ -26,7 +26,7 @@ export default function ThirdSection() {
                         <div className="flex-shrink-0 md:w-2/5 transform hover:scale-105 transition-transform duration-300">
                             <div className="rounded-3xl overflow-hidden shadow-lg">
                                 <Image
-                                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-i8rqS0og9Gcxi17tssnTxqTs3R7eUG.png"
+                                    src="/woman-farmer.avif"
                                     alt="Happy farmer giving thumbs up"
                                     width={400}
                                     height={500}

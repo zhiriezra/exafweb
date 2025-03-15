@@ -17,7 +17,7 @@ export default function SustainableFarmingSection() {
           >
             <div className="relative w-full max-w-2xl">
               <Image
-                src="/african-farmers.jpg"
+                src="/african-farmers.avif"
                 alt="Sustainable Farming"
                 width={1200}
                 height={900}

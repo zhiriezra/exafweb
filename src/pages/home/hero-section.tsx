@@ -44,11 +44,27 @@ export default function HeroSection() {
                 </Link>
 
                 <Link
-                  href="/"
+                  href={routes.products}
                   className="text-white font-bold hover:text-yellow-400 transition-colors"
                 >
                   Products
                 </Link>
+
+                <Link
+                  href={routes.products}
+                  className="text-white font-bold hover:text-yellow-400 transition-colors"
+                >
+                  Services
+                </Link>
+
+                <Link
+                  href={routes.products}
+                  className="text-white font-bold hover:text-yellow-400 transition-colors"
+                >
+                  Resources
+                </Link>
+
+                
               </nav>
             </CustomAOS>
             <Link href={routes.findAgents}>
@@ -181,7 +197,7 @@ const SecondCarousel = () => {
         <div className="max-w-[500px] xl:ml-32 sm:mr-auto">
           <CustomAOS variant="fadeInUp" duration={0.5}>
             <div className="inline-block px-4 py-1 border border-yellow-500 text-yellow-500 font-medium rounded-full text-sm mb-6">
-              #2 Take control of your last-mile operations
+              #1 Private extension service provider in Africa
             </div>
           </CustomAOS>
 
@@ -195,8 +211,7 @@ const SecondCarousel = () => {
 
           <CustomAOS variant="fadeInUp" duration={0.6} delay={0.2}>
             <p className="text-white/90 text-lg mb-8 max-w-lg">
-              {`  We're building the largest network of reliable Extension Agents
-              for African farmers.`}
+              {`Take control of your last-mile operations.`}
             </p>
           </CustomAOS>
 
