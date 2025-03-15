@@ -6,7 +6,7 @@ export default function Publications() {
   return (
     <div>
       <HeroSection />
-      <main className="flex min-h-screen flex-col items-center justify-center p-4 text-center my-20">
+      <main className="flex flex-col items-center justify-center p-4 text-center my-20">
         <div className="max-w-3xl space-y-6 ">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Coming Soon
