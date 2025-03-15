@@ -21,11 +21,11 @@ export default function SecondSection() {
             </p>
             <div className="flex justify-center gap-4 mt-8">
               <div className="px-6 py-4 bg-white rounded-lg shadow-md">
-                <h3 className="font-bold text-2xl text-green-700">1000+</h3>
+                <h3 className="font-bold text-2xl text-green-700">800,000+</h3>
                 <p className="text-gray-600">Farmers Connected</p>
               </div>
               <div className="px-6 py-4 bg-white rounded-lg shadow-md">
-                <h3 className="font-bold text-2xl text-green-700">20+</h3>
+                <h3 className="font-bold text-2xl text-green-700">2+</h3>
                 <p className="text-gray-600">African Countries</p>
               </div>
               <div className="px-6 py-4 bg-white rounded-lg shadow-md">

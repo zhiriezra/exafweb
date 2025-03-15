@@ -39,12 +39,12 @@ export default function SecondSection() {
             delay={0.3}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-lg transition-transform duration-300 hover:scale-110">
+            <div className="relative w-full transition-transform duration-300 hover:scale-110">
               <Image
-                src="/laptop.avif"
+                src="/laptop.png"
                 alt="Extension Africa Platform"
-                width={800}
-                height={600}
+                width={1200}
+                height={800}
                 className="object-contain"
                 priority
               />
